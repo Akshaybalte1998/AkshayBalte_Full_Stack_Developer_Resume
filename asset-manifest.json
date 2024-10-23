@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/AkshayBalte_Full_Stack_Developer_Resume/static/css/main.33c362f4.css",
+    "main.js": "/AkshayBalte_Full_Stack_Developer_Resume/static/js/main.466a65e2.js",
+    "static/media/remixicon.svg?t=1718271040674": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/remixicon.f38690bdde29bddbc211.svg",
+    "static/media/portfolio-05.png": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/portfolio-05.631506b382f15fb1b86e.png",
+    "static/media/remixicon.eot?t=1718271040674": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/remixicon.d87042cf9a3f67d1cab2.eot",
+    "static/media/remixicon.ttf?t=1718271040674": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/remixicon.88da6179288d7835c2f0.ttf",
+    "static/media/portfolio-02.jpg": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/portfolio-02.252aa09cb6d9c71bebca.jpg",
+    "static/media/akshay.png": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/akshay.e053314201843e26fc4d.png",
+    "static/media/remixicon.woff?t=1718271040674": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/remixicon.1bdc36c90398c9d667d1.woff",
+    "static/media/portfolio-01.jpg": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/portfolio-01.c9a2afcba325392ae82c.jpg",
+    "static/media/remixicon.woff2?t=1718271040674": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/remixicon.8aece9ab0de67b79cfda.woff2",
+    "static/media/portfolio-03.jpg": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/portfolio-03.c1fa2a0faf8a503d3fcc.jpg",
+    "static/media/portfolio-04.jpg": "/AkshayBalte_Full_Stack_Developer_Resume/static/media/portfolio-04.232c072795f09517cebe.jpg",
+    "index.html": "/AkshayBalte_Full_Stack_Developer_Resume/index.html",
+    "main.33c362f4.css.map": "/AkshayBalte_Full_Stack_Developer_Resume/static/css/main.33c362f4.css.map",
+    "main.466a65e2.js.map": "/AkshayBalte_Full_Stack_Developer_Resume/static/js/main.466a65e2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33c362f4.css",
+    "static/js/main.466a65e2.js"
+  ]
+}
