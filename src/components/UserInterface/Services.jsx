@@ -80,14 +80,22 @@ const Services = () => {
           />
           <ProjectCard
             title="Music Recommendation System"
-            description="A personalized music recommendation system leveraging user preferences and listening history."
+            description="A personalized music recommendation system designed to suggest songs 
+            based on user preferences and listening history. The system uses machine learning 
+            models to analyze user behavior and provide tailored recommendations. By integrating 
+            the Spotify API, the application fetches real-time music data and enhances the accuracy 
+            of suggestions"
             technologies="Python, Flask, TensorFlow, Spotify API"
             imageSrc={frontendImg}
             animation="fade-left"
           />
           <ProjectCard
             title="Drug Review Using NLP"
-            description="An analysis tool to interpret and categorize drug reviews using natural language processing."
+            description="A drug review analysis tool that interprets and categorizes user reviews to
+             provide insights into drug effectiveness, side effects, and overall user experience.
+              Utilizing natural language processing (NLP) techniques, the system extracts meaningful
+               patterns from unstructured text data. TensorFlow is employed to build and train models 
+               that classify reviews based on sentiment and key medical aspects."
             technologies="Python, Flask, NLP, TensorFlow"
             imageSrc={frontendImg}
             animation="fade-right"
