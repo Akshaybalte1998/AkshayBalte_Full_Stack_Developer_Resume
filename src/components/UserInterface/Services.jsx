@@ -6,70 +6,75 @@ const Services = () => {
     <section id="services" style={styles.section}>
       <div style={styles.container}>
         {/* Education Section */}
-        <div style={styles.sectionHeader}>
-          <h2 style={styles.sectionTitle}>Education</h2>
-        </div>
+        <SectionHeader title="Education" />
 
-        <div style={styles.timelineContainer}>
-          <div style={styles.timelineLine}></div>
-
-          <div style={styles.timelineContent}>
-            <TimelineCard
-              title="CDAC"
-              icon="ri-graduation-cap-fill"
-              description="PG-DAC, IACSD, Pune"
-              date="March 2024 – August 2024"
-              imageSrc={frontendImg}
-              animation="fade-left"
-            />
-            <TimelineCard
-              title="Internship"
-              icon="ri-robot-2-fill"
-              description="Machine Learning Intern, Aiverient, Pune"
-              date="June 2022 – February 2023"
-              imageSrc={frontendImg}
-              animation="fade-right"
-            />
-            <TimelineCard
-              title="B.Tech"
-              icon="ri-graduation-cap-fill"
-              description="Mechanical Engineering, DKTE Textile and Engineering Institute, Ichalkaranji"
-              date="2016 – 2020"
-              additionalInfo="7.78 CGPA"
-              imageSrc={frontendImg}
-              animation="fade-left"
-            />
-            <TimelineCard
-              title="HSC"
-              icon="ri-school-fill" 
-              description="A.K. Junior College, Atpadi"
-              date="2014 – 2016"
-              additionalInfo="67.54%"
-              imageSrc={frontendImg}
-              animation="fade-right"
-            />
-            <TimelineCard
-              title="SSC"
-              icon="ri-school-fill"
-              description="Shree Bhavnai Vidyalaya, Atpadi"
-              date="2014"
-              additionalInfo="90.60%"
-              imageSrc={frontendImg}
-              animation="fade-left"
-            />
-          </div>
-        </div>
+        <TimelineContainer>
+          <TimelineCard
+            title="CDAC"
+            icon="ri-graduation-cap-fill"
+            description="PG-DAC, IACSD, Pune"
+            date="March 2024 – August 2024"
+            additionalInfo="60.38%"
+            imageSrc={frontendImg}
+            animation="fade-left"
+          />
+          <TimelineCard
+            title="Internship"
+            icon="ri-robot-2-fill"
+            description="Machine Learning Intern, Aiverient, Pune"
+            date="June 2022 – February 2023"
+            imageSrc={frontendImg}
+            animation="fade-right"
+          />
+          <TimelineCard
+            title="B.Tech"
+            icon="ri-graduation-cap-fill"
+            description="Mechanical Engineering, DKTE Textile and Engineering Institute, Ichalkaranji"
+            date="2016 – 2020"
+            additionalInfo="7.78 CGPA"
+            imageSrc={frontendImg}
+            animation="fade-left"
+          />
+          <TimelineCard
+            title="HSC"
+            icon="ri-school-fill"
+            description="A.K. Junior College, Atpadi"
+            date="2014 – 2016"
+            additionalInfo="67.54%"
+            imageSrc={frontendImg}
+            animation="fade-right"
+          />
+          <TimelineCard
+            title="SSC"
+            icon="ri-school-fill"
+            description="Shree Bhavnai Vidyalaya, Atpadi"
+            date="2014"
+            additionalInfo="90.60%"
+            imageSrc={frontendImg}
+            animation="fade-left"
+          />
+        </TimelineContainer>
 
         {/* Projects Section */}
-        <div style={styles.sectionHeader}>
-          <h2 style={styles.sectionTitle}>Projects</h2>
-        </div>
+        <SectionHeader title="Projects" />
 
         <div style={styles.projectsContainer}>
           <ProjectCard
             title="AgroMaart - Online Agriculture Marketplace"
-            description="AgroMaart is an online platform designed to connect farmers, buyers, and delivery personnel in a seamless agricultural marketplace. It allows users to browse, purchase, and manage agricultural products and services. Features include real-time order tracking, secure payment processing, location services, and communication through SMS and notifications."
-            technologies="React, HTML, CSS, Spring Boot, Hibernate, MySQL"
+            description={
+              <ProjectDescription
+                githubLink="https://github.com/Akshaybalte1998/AgroMart-Project.git"
+                description="Developed a user-friendly web-based application to streamline the management of fertilizer shops, facilitating better communication and efficiency among shop owners, farmers, and delivery personnel."
+                features={[
+                  "Role-Based Access: Implemented a role-based system for shop owners, farmers, and delivery personnel, providing specific access and functionalities for each user group.",
+                  "Inventory and Order Management: Enabled shop owners to manage inventory, view orders, and oversee deliveries. Farmers can browse fertilizers, check prices, place orders, and track delivery status.",
+                  "Real-Time Updates: Delivery personnel can update delivery status in real-time, enhancing transparency and communication between stakeholders.",
+                  "Data Security: Utilized Spring Security to ensure secure user authentication and data protection.",
+                  "Impact: Improved the efficiency of fertilizer distribution by connecting all stakeholders on a single platform, reducing manual effort and increasing operational transparency."
+                ]}
+              />
+            }
+            technologies="React, HTML, CSS, Bootstrap (Frontend); Spring Boot, Spring Security, Hibernate (Backend); MySQL (Database)."
             imageSrc={frontendImg}
             animation="fade-right"
           />
@@ -91,7 +96,38 @@ const Services = () => {
       </div>
     </section>
   );
-}
+};
+
+/* Section Header Component */
+const SectionHeader = ({ title }) => (
+  <div style={styles.sectionHeader}>
+    <h2 style={styles.sectionTitle}>{title}</h2>
+  </div>
+);
+
+/* Timeline Container Component */
+const TimelineContainer = ({ children }) => (
+  <div style={styles.timelineContainer}>
+    <div style={styles.timelineLine}></div>
+    <div style={{ ...styles.timelineContent, marginTop: '3rem' }}>
+      {children}
+    </div>
+  </div>
+);
+
+/* Project Description Component */
+const ProjectDescription = ({ githubLink, description, features }) => (
+  <p>
+    <strong>GitHub:</strong> <a href={githubLink} style={styles.link}>{githubLink}</a> <br />
+    <strong>Description:</strong> {description} <br />
+    <strong>Key Features:</strong> <br />
+    {features.map((feature, index) => (
+      <span key={index} style={styles.featureItem}>
+        <strong>{feature.split(':')[0]}:</strong> {feature.split(':')[1]} <br />
+      </span>
+    ))}
+  </p>
+);
 
 /* Timeline Card Component */
 const TimelineCard = ({ title, icon, description, date, additionalInfo, imageSrc, animation }) => (
@@ -100,11 +136,7 @@ const TimelineCard = ({ title, icon, description, date, additionalInfo, imageSrc
       <img src={imageSrc} alt={`Icon for ${title}`} style={styles.iconImage} />
     </div>
     <div style={styles.cardContent}>
-      <div
-        data-aos={animation}
-        data-aos-duration="1200"
-        style={styles.timelineCard}
-      >
+      <div data-aos={animation} data-aos-duration="1200" style={styles.timelineCard}>
         <h3 style={styles.cardTitle}>
           {icon && <i className={`${icon} mr-2`}></i>} {title}
         </h3>
@@ -114,17 +146,13 @@ const TimelineCard = ({ title, icon, description, date, additionalInfo, imageSrc
       </div>
     </div>
   </div>
-)
+);
 
 /* Project Card Component */
 const ProjectCard = ({ title, description, technologies, imageSrc, animation }) => (
   <div style={styles.projectCardContainer}>
     <div style={styles.projectCardContent}>
-      <div
-        data-aos={animation}
-        data-aos-duration="1200"
-        style={styles.projectCard}
-      >
+      <div data-aos={animation} data-aos-duration="1200" style={styles.projectCard}>
         <h3 style={styles.cardTitle}>{title}</h3>
         <p style={styles.cardDescription}>{description}</p>
         <p style={styles.cardTechnologies}><b>Technologies:</b> {technologies}</p>
@@ -134,13 +162,14 @@ const ProjectCard = ({ title, description, technologies, imageSrc, animation }) 
       <img src={imageSrc} alt={`Icon for ${title}`} style={styles.iconImage} />
     </div>
   </div>
-)
+);
 
 /* CSS-in-JS Styles */
 const styles = {
   section: {
     padding: '2rem',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: '#708090',
+    color: '#2c3e50',
   },
   container: {
     maxWidth: '1200px',
@@ -152,9 +181,9 @@ const styles = {
     marginBottom: '2rem',
   },
   sectionTitle: {
-    color: '#3b82f6',
+    color: '#3498db',
     fontWeight: 'bold',
-    fontSize: '2rem',
+    fontSize: '2.5rem',
     marginBottom: '1rem',
   },
   timelineContainer: {
@@ -166,36 +195,39 @@ const styles = {
   },
   timelineLine: {
     position: 'absolute',
-    width: '3px',
+    width: '5px',
     height: '100%',
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#FFFFF0',
     left: '50%',
     transform: 'translateX(-50%)',
   },
   timelineContent: {
-    marginTop: '3rem',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    gap: '2rem',
   },
   projectsContainer: {
     marginTop: '3rem',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    gap: '2rem',
   },
   cardContainer: {
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
     gap: '1rem',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFA500',
     borderRadius: '0.5rem',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    padding: '1rem',
+    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
+    padding: '1.5rem',
     transition: 'transform 0.2s ease-in-out',
     cursor: 'pointer',
+    '&:hover': {
+      transform: 'scale(1.05)',
+      boxShadow: '0 12px 24px rgba(0, 0, 0, 0.3)',
+    },
   },
   cardContent: {
     flex: 1,
@@ -204,7 +236,7 @@ const styles = {
   },
   timelineCard: {
     backgroundColor: '#ffffff',
-    padding: '1rem',
+    padding: '1.5rem',
     borderRadius: '0.5rem',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     transition: 'background-color 0.2s ease-in',
@@ -212,58 +244,60 @@ const styles = {
   },
   projectCardContainer: {
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: '1rem',
-    backgroundColor: '#ffffff',
+    padding: '1rem',
+    backgroundColor: '#FFFFF0',
     borderRadius: '0.5rem',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    padding: '1rem',
-    transition: 'transform 0.2s ease-in-out',
-    cursor: 'pointer',
+    transition: 'background-color 0.2s ease-in',
   },
   projectCardContent: {
     flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
+    paddingRight: '1rem',
+  },
+  projectCard: {
+    marginBottom: '1rem',
+  },
+  iconContainer: {
+    width: '50px',
+    height: '50px',
+  },
+  iconImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
   },
   cardTitle: {
-    color: '#3b82f6',
     fontWeight: 'bold',
-    marginBottom: '0.5rem',
+    color: '#2980b9',
     fontSize: '1.25rem',
   },
   cardDescription: {
-    fontSize: '0.875rem',
-    color: '#374151',
+    fontSize: '1rem',
+    color: '#34495e',
   },
   cardDate: {
-    fontSize: '0.875rem',
-    color: '#6b7280',
-    marginTop: '0.5rem',
+    fontSize: '0.9rem',
+    color: '#7f8c8d',
   },
   cardAdditionalInfo: {
-    fontSize: '0.875rem',
-    color: '#6b7280',
-    marginTop: '0.5rem',
+    fontSize: '0.9rem',
+    color: '#27ae60',
+  },
+  link: {
+    color: '#3498db',
+    textDecoration: 'underline',
+  },
+  featureItem: {
+    display: 'block',
+    color: '#2c3e50',
+    marginBottom: '0.5rem',
   },
   cardTechnologies: {
-    fontSize: '0.875rem',
-    color: '#6b7280',
-    marginTop: '0.5rem',
-  },
-  iconContainer: {
-    backgroundColor: '#3b82f6',
-    border: '2px solid #ffffff',
-    borderRadius: '50%',
-    width: '40px',
-    height: '40px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  iconImage: {
-    width: '24px',
-    height: '24px',
+    fontSize: '0.9rem',
+    color: '#7f8c8d',
+    marginTop: '1rem',
   },
 };
 

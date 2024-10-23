@@ -8,8 +8,8 @@ const headerStyle = {
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '0 20px',
-  backgroundColor: '#333', // Dark background for the header
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+  backgroundColor: '#282C34', // Dark background for header (rich black)
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
   transition: 'all 0.3s ease',
   position: 'fixed',
   top: 0,
@@ -18,7 +18,7 @@ const headerStyle = {
 };
 
 const stickyHeaderStyle = {
-  backgroundColor: '#444', // Slightly lighter background when sticky
+  backgroundColor: '#3B3F45', // Slightly lighter gray when sticky
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
 };
 
@@ -31,7 +31,7 @@ const logoStyle = {
 const logoTextStyle = {
   width: '40px',
   height: '40px',
-  backgroundColor: '#1e40af', // Blue background for the logo
+  backgroundColor: '#FF6F61', // Vibrant coral color for the logo
   color: '#ffffff',
   textAlign: 'center',
   lineHeight: '40px',
@@ -47,13 +47,13 @@ const nameStyle = {
 
 const nameHeaderStyle = {
   fontSize: '1.5rem',
-  color: '#ffffff', // White text color
+  color: '#F9FAFB', // Soft white text
   fontWeight: '700',
   textTransform: 'uppercase',
 };
 
 const nameSubHeaderStyle = {
-  color: '#d3d3d3', // Light grey color
+  color: '#A0AEC0', // Cool gray for subheader
   fontSize: '1rem',
   fontWeight: '500',
   textTransform: 'uppercase',
@@ -74,7 +74,7 @@ const ulStyle = {
 
 const linkStyle = {
   textDecoration: 'none',
-  color: '#f1f1f1', // Light grey color for links
+  color: '#CBD5E0', // Light cool gray for links
   fontSize: '1rem',
   fontWeight: '500',
   textTransform: 'uppercase',
@@ -82,14 +82,14 @@ const linkStyle = {
 };
 
 const activeLinkStyle = {
-  color: '#1e40af', // Blue color for active link
-  borderBottom: '2px solid #1e40af',
+  color: '#FFD700', // Bright gold for active link
+  borderBottom: '2px solid #FFD700',
 };
 
 const mobileMenuIconStyle = {
   cursor: 'pointer',
   fontSize: '24px',
-  color: '#ffffff', // White color for the mobile menu icon
+  color: '#F9FAFB', // White for mobile menu icon
 };
 
 const Header = () => {
@@ -108,7 +108,7 @@ const Header = () => {
       } else {
         headerRef.current.classList.remove('sticky_header');
       }
-      
+
       // Check which section is in view
       const sections = ['home', 'about', 'services', 'portfolio', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100; // Adding some offset for better visibility
@@ -138,18 +138,13 @@ const Header = () => {
     const targetElement = document.querySelector(targetAttr);
 
     if (targetElement) {
-      console.log(`Scrolling to ${targetAttr}`);
-      console.log(`Element offsetTop: ${targetElement.offsetTop}`);
-
       const headerHeight = headerRef.current.offsetHeight;
 
       window.scrollTo({
         top: targetElement.offsetTop - headerHeight,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
-    } else {
-      console.error(`No element found for selector: ${targetAttr}`);
     }
   };
 
@@ -174,12 +169,12 @@ const Header = () => {
 
       <nav style={navStyle}>
         <ul style={ulStyle}>
-          <li><a href="#home" onClick={handleClick} style={activeSection === 'home' ? {...linkStyle, ...activeLinkStyle} : linkStyle}>Home</a></li>
-           <li><a href="#about" onClick={handleClick} style={activeSection === 'about' ? {...linkStyle, ...activeLinkStyle} : linkStyle}>About</a></li>
-          <li><a href="#services" onClick={handleClick} style={activeSection === 'services' ? {...linkStyle, ...activeLinkStyle} : linkStyle}>Services</a></li>
-          <li><a href="#skills" onClick={handleClick} style={activeSection === 'skills' ? {...linkStyle, ...activeLinkStyle} : linkStyle}>Skills</a></li>
-          <li><a href="#portfolio" onClick={handleClick} style={activeSection === 'portfolio' ? {...linkStyle, ...activeLinkStyle} : linkStyle}>Portfolio</a></li>
-          <li><a href="#contact" onClick={handleClick} style={activeSection === 'contact' ? {...linkStyle, ...activeLinkStyle} : linkStyle}>Contact</a></li>
+          <li><a href="#home" onClick={handleClick} style={activeSection === 'home' ? { ...linkStyle, ...activeLinkStyle } : linkStyle}>Dashboard</a></li>
+          <li><a href="#about" onClick={handleClick} style={activeSection === 'about' ? { ...linkStyle, ...activeLinkStyle } : linkStyle}>About Us</a></li>
+          <li><a href="#services" onClick={handleClick} style={activeSection === 'services' ? { ...linkStyle, ...activeLinkStyle } : linkStyle}>Educational Journey & Projects</a></li>
+          <li><a href="#skills" onClick={handleClick} style={activeSection === 'skills' ? { ...linkStyle, ...activeLinkStyle } : linkStyle}>Core Strengths</a></li>
+          <li><a href="#portfolio" onClick={handleClick} style={activeSection === 'portfolio' ? { ...linkStyle, ...activeLinkStyle } : linkStyle}>Certifications</a></li>
+          <li><a href="#contact" onClick={handleClick} style={activeSection === 'contact' ? { ...linkStyle, ...activeLinkStyle } : linkStyle}>Let's Talk</a></li>
         </ul>
       </nav>
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
-  // State to hold form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,10 +9,8 @@ const Contact = () => {
     message: ''
   });
 
-  // State for alerts
   const [alert, setAlert] = useState('');
 
-  // Function to handle input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,25 +19,32 @@ const Contact = () => {
     });
   };
 
-  // Function to send email
   const sendEmail = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     try {
-      // Use EmailJS to send email
       await emailjs.send(
-        'service_bwhv55s',  // Replace with your actual EmailJS Service ID
-        'template_b8zkcmg', // Replace with your actual EmailJS Template ID
-        formData,          // Form data containing name, email, subject, and message
-        'yJBCEfYLLYyRuMnFo'      // Replace with your actual EmailJS User ID
+        'service_bwhv55s',
+        'template_b8zkcmg',
+        formData,
+        'yJBCEfYLLYyRuMnFo'
       );
       setAlert('Message sent successfully!');
+
+      // Automatically dismiss the alert after 5 seconds
+      setTimeout(() => {
+        setAlert('');
+      }, 5000);
     } catch (error) {
       setAlert('An error occurred, please try again.');
-      console.error('EmailJS Error:', error); // Log the error for debugging
+      console.error('EmailJS Error:', error);
+
+      // Automatically dismiss the alert after 5 seconds
+      setTimeout(() => {
+        setAlert('');
+      }, 5000);
     }
 
-    // Reset the form after submission
     setFormData({
       name: '',
       email: '',
@@ -50,10 +54,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" style={styles.container}>
-      <h2 style={styles.heading}>Get In Touch</h2>
+    <section id="contact" style={styles.container} >
+      <h2 style={styles.heading}>Let's Talk</h2>
       {alert && (
-        <div style={{ ...styles.alert, ...(alert.includes('error') ? styles.alertError : {}) }}>
+        <div style={{ ...styles.alert, ...(alert.includes('error') ? styles.alertError : styles.alertSuccess) }}>
           {alert}
         </div>
       )}
@@ -109,18 +113,18 @@ const Contact = () => {
   );
 };
 
-// Define styles within the same file
 const styles = {
   container: {
     padding: '4rem 1rem',
     maxWidth: '900px',
     margin: '0 auto',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#87CEEB', // Sky blue background
+    borderRadius: '12px',
+    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
+    overflow: 'hidden',
   },
   heading: {
-    color: '#333',
+    color: '#ffffff',
     fontWeight: '700',
     fontSize: '2.5rem',
     marginBottom: '1rem',
@@ -128,6 +132,8 @@ const styles = {
   },
   formWrapper: {
     padding: '2rem',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Slight transparency for the form
+    borderRadius: '8px',
   },
   inputField: {
     marginBottom: '1rem',
@@ -155,7 +161,7 @@ const styles = {
   button: {
     padding: '0.75rem',
     borderRadius: '8px',
-    backgroundColor: '#4a90e2',
+    backgroundColor: '#ff4081', // Vibrant pink
     color: '#fff',
     border: 'none',
     width: '100%',
@@ -164,7 +170,7 @@ const styles = {
     transition: 'background-color 0.3s ease',
   },
   buttonHover: {
-    backgroundColor: '#357ABD',
+    backgroundColor: '#e91e63', // Darker pink
   },
   alert: {
     padding: '1rem',
@@ -172,6 +178,10 @@ const styles = {
     marginBottom: '1rem',
     textAlign: 'center',
     fontWeight: 'bold',
+  },
+  alertSuccess: {
+    backgroundColor: '#d4edda',
+    color: '#155724',
   },
   alertError: {
     backgroundColor: '#f8d7da',

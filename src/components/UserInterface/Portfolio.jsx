@@ -35,11 +35,6 @@ const Portfolio = () => {
             <div className="container">
                 <div className="header">
                     <h3 className='title'>Certification</h3>
-                    <div className="tabs">
-                        <button onClick={() => setSelectTab('ALL')} className='tab-button active'>ALL</button>
-                        <button onClick={() => setSelectTab('Web Design')} className='tab-button'>Web Design</button>
-                        <button onClick={() => setSelectTab('Ux Design')} className='tab-button'>Ux Design</button>
-                    </div>
                 </div>
                 <div className='portfolio-grid'>
                     {
@@ -61,11 +56,7 @@ const Portfolio = () => {
                         ))
                     }
                 </div>
-                <div className='load-more'>
-                    <button onClick={loadMoreHandler} className='load-more-button'>
-                        Load More
-                    </button>
-                </div>
+                
             </div>
             {
                 showModal && <Modal setShowModal={setShowModal} activeID={activeID} />
@@ -73,63 +64,46 @@ const Portfolio = () => {
             <style jsx>{`
                 #Portfolio {
                     font-family: Arial, sans-serif;
+                    background-color: #f5f5dc ; /* Changed background color to #d3d3d3 */
+                    padding: 2rem 0;
                 }
 
                 .container {
                     width: 90%;
                     margin: 0 auto;
+                    text-align: center; /* Center content */
                 }
 
                 .header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 1.5rem;
+                    margin-bottom: 2rem;
                 }
 
                 .title {
-                    font-size: 2rem;
+                    font-size: 2.5rem;
                     font-weight: 700;
-                    color: #333;
-                }
-
-                .tabs {
-                    display: flex;
-                    gap: 1rem;
-                }
-
-                .tab-button {
-                    border: 1px solid #ccc;
-                    padding: 0.5rem 1rem;
-                    border-radius: 8px;
-                    background-color: #f8f8f8;
-                    color: #333;
-                    cursor: pointer;
-                    transition: background-color 0.3s, color 0.3s;
-                }
-
-                .tab-button.active {
-                    background-color: #333;
-                    color: #fff;
+                    color: #007bff; /* Updated color */
                 }
 
                 .portfolio-grid {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 1rem;
+                    gap: 1.5rem; /* Increase gap */
+                    justify-content: center; /* Center items */
                 }
 
                 .portfolio-item {
                     position: relative;
                     width: calc(33.333% - 1rem);
-                    box-sizing: border-box;
+                    max-width: 300px;
                     overflow: hidden;
-                    border-radius: 8px;
-                    transition: transform 0.3s;
+                    border-radius: 12px; /* Make borders rounder */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+                    transition: transform 0.3s, box-shadow 0.3s;
                 }
 
                 .portfolio-item:hover {
                     transform: scale(1.05);
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                 }
 
                 .portfolio-img {
@@ -144,7 +118,7 @@ const Portfolio = () => {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5);
+                    background-color: rgba(0, 123, 255, 0.7); /* Update overlay color */
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -158,20 +132,21 @@ const Portfolio = () => {
 
                 .overlay-content {
                     text-align: center;
+                    color: #fff;
                 }
 
                 .details-button {
-                    background-color: #333;
+                    background-color: #007bff;
                     color: #fff;
                     border: none;
-                    padding: 0.5rem 1rem;
+                    padding: 0.7rem 1.2rem;
                     border-radius: 8px;
                     cursor: pointer;
                     transition: background-color 0.3s;
                 }
 
                 .details-button:hover {
-                    background-color: #555;
+                    background-color: #0056b3;
                 }
 
                 .load-more {
@@ -180,17 +155,17 @@ const Portfolio = () => {
                 }
 
                 .load-more-button {
-                    background-color: #333;
+                    background-color: #007bff;
                     color: #fff;
                     border: none;
-                    padding: 0.5rem 1rem;
+                    padding: 0.7rem 1.2rem;
                     border-radius: 8px;
                     cursor: pointer;
                     transition: background-color 0.3s;
                 }
 
                 .load-more-button:hover {
-                    background-color: #555;
+                    background-color: #0056b3;
                 }
             `}</style>
         </div>

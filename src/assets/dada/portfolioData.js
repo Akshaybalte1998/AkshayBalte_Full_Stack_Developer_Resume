@@ -2,10 +2,20 @@ import portfolioImg01 from "../images/portfolio-01.jpg";
 import portfolioImg02 from "../images/portfolio-02.jpg";
 import portfolioImg03 from "../images/portfolio-03.jpg";
 import portfolioImg04 from "../images/portfolio-04.jpg";
-
+import portfolioImg05 from "../images/portfolio-05.png";
 
 
 const portfolios = [
+  {
+    id: "05",
+    imgUrl: portfolioImg05,
+    category: "PG-DAC",
+    title: "CDAC",
+    description:
+      "Completed PG-DAC from CDAC from IACSD ",
+    technologies: ["Full Stack Developer , Dot Net Developer,MERN Stack "],
+    siteUrl: "#",
+  },
   {
     id: "01",
     imgUrl: portfolioImg01,

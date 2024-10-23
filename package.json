@@ -1,13 +1,14 @@
 {
-  "name": "portfolioakshay",
+  "name": "AkshayBalte_Full_Stack_Developer_Resume",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Akshaybalte1998.github.io/AkshayResume",
+  "homepage": "https://Akshaybalte1998.github.io/AkshayBalte_Full_Stack_Developer_Resume",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
+    "bootstrap": "^5.3.3",
     "emailjs-com": "^3.2.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -45,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.2.0"
   }
 }
